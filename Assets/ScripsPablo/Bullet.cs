@@ -23,8 +23,12 @@ public class Bullet : MonoBehaviour
         rb.velocity = directionPlayer * speed;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D other)
     {
-        Destroy(gameObject);
+        if (other.gameObject.CompareTag("Player"))
+        {
+            other.gameObject.GetComponent<StunePlayer>().Stun(other.GetContact(0).normal);
+            Destroy(gameObject);
+        }
     }
 }

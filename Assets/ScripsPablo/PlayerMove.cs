@@ -4,21 +4,33 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
+    private Rigidbody2D rb;
+    public bool canMove = true;
+    [SerializeField]
+    Vector2 velocityrebound;
+    [Header("-----Movimiento-----")]
     [SerializeField]
     private float speed;
-    private Rigidbody2D rb2d;
+
     void Awake()
     {
-        rb2d = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();
     }
     void Update()
     {
-        Move();
+        if (canMove)
+        {
+            Move();
+        }
     }
     void Move()
     {
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
-        rb2d.velocity = new Vector2(horizontal, vertical) * speed;
+        rb.velocity = new Vector2(horizontal, vertical) * speed;
+    }
+    public void Rebote(Vector2 puntoGolpe)
+    {
+        rb.velocity = new Vector2(-velocityrebound.x * puntoGolpe.x, -velocityrebound.y * puntoGolpe.y);
     }
 }
