@@ -27,5 +27,9 @@ public class LettusBullet : MonoBehaviour
             other.gameObject.GetComponent<StunePlayer>().Stun(other.GetContact(0).normal);
             Destroy(gameObject);
         }
+        if (other.gameObject.CompareTag("Wall"))
+        {
+            Destroy(gameObject);
+        }
     }
 }

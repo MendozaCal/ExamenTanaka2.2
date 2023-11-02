@@ -7,8 +7,12 @@ public class TomatoFollow : MonoBehaviour
     public GameObject Player;
     public float speed;
     float Distance;
-
+    
     private void Update()
+    {
+        Move();
+    }
+    void Move()
     {
         Distance = Vector2.Distance(transform.position, Player.transform.position);
         Vector2 direction = Player.transform.position - transform.position;
