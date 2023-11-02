@@ -9,11 +9,6 @@ public class StunePlayer : MonoBehaviour
     [SerializeField]
     float timeStune;
 
-    internal void Stune(Vector2 normal)
-    {
-        throw new NotImplementedException();
-    }
-
     private void Start()
     {
         playerMove = GetComponent<PlayerMove>();
