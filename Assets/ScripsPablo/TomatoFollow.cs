@@ -17,20 +17,4 @@ public class TomatoFollow : MonoBehaviour
             transform.position = Vector2.MoveTowards(this.transform.position, Player.transform.position, speed * Time.deltaTime);
         }
     }
-    /*private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Player"))
-        {
-            PlayerInArea = true;
-            Player = collision.gameObject.transform;
-        }
-    }
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Player"))
-        {
-            PlayerInArea = false;
-            Player = null;
-        }
-    }*/
 }
